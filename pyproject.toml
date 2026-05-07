@@ -13,5 +13,6 @@ dependencies = [
     "pandas>=3.0.2",
     "plotly>=6.7.0",
     "shiny>=1.6.0",
+    "shinylive>=0.8.7",
     "shinywidgets>=0.8.0",
 ]
