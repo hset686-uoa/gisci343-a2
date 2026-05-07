@@ -43,6 +43,16 @@ app_ui = ui.page_sidebar(
     ),
 
     ui.card(
+    ui.h4("How to read this dashboard"),
+    ui.p(
+        "Use the filters on the left to choose a transport mode, year range, "
+        "and number of top routes. The bar chart ranks routes by total passengers, "
+        "the line chart shows how patronage changes month by month, and the map "
+        "shows the spatial distribution of Auckland bus stops."
+    )
+    ),
+
+    ui.card(
         ui.h4("Top routes by total passengers"),
         ui.output_plot("top_routes_plot")
     ),

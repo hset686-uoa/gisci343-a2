@@ -1,0 +1,23 @@
+---
+title: "GISCI 343 Assignment 2: Design Report"
+author: "Hans Setiawan"
+date: today
+format:
+  pdf:
+    documentclass: article
+    geometry: margin=2.5cm
+    fontsize: 11pt
+    number-sections: true
+    toc: false
+---
+
+# Motivation and Audience
+
+# Data and Preparation
+
+# Technical Architecture
+
+# User Interface Walkthrough
+
+# Limitations and Future Improvements
+
