@@ -1,16 +1,21 @@
+from pathlib import Path
+
 from shiny import App, ui, render, reactive
 from shinywidgets import render_widget, output_widget
 import pandas as pd
 import matplotlib.pyplot as plt
 import ipyleaflet
 
+# File paths that work locally and after ShinyLive deployment
+BASE_DIR = Path(__file__).parent
+
 # Load clean patronage data
-df = pd.read_csv("data/clean_patronage_by_route.csv")
+df = pd.read_csv(BASE_DIR / "data" / "clean_patronage_by_route.csv")
 df["month"] = pd.to_datetime(df["month"])
 df["year"] = df["month"].dt.year
 
 # Load bus stop spatial data
-stops = pd.read_csv("data/bus_stops.csv")
+stops = pd.read_csv(BASE_DIR / "data" / "bus_stops.csv")
 
 modes = ["All"] + sorted(df["Mode"].dropna().unique().tolist())
 
@@ -43,13 +48,13 @@ app_ui = ui.page_sidebar(
     ),
 
     ui.card(
-    ui.h4("How to read this dashboard"),
-    ui.p(
-        "Use the filters on the left to choose a transport mode, year range, "
-        "and number of top routes. The bar chart ranks routes by total passengers, "
-        "the line chart shows how patronage changes month by month, and the map "
-        "shows the spatial distribution of Auckland bus stops."
-    )
+        ui.h4("How to read this dashboard"),
+        ui.p(
+            "Use the filters on the left to choose a transport mode, year range, "
+            "and number of top routes. The bar chart ranks routes by total passengers, "
+            "the line chart shows how patronage changes month by month, and the map "
+            "shows the spatial distribution of Auckland bus stops."
+        )
     ),
 
     ui.card(
@@ -158,23 +163,20 @@ def server(input, output, session):
     def map():
         m = ipyleaflet.Map(
             center=(-36.85, 174.76),
-            zoom=10
+            zoom=13
         )
 
-        sample = stops.sample(n=min(300, len(stops)), random_state=1)
+        sample = stops.sample(n=min(100, len(stops)), random_state=1)
 
-        markers = []
         for _, row in sample.iterrows():
             marker = ipyleaflet.CircleMarker(
                 location=(row["lat"], row["lon"]),
-                radius=3,
-                color="blue",
-                fill_color="blue",
-                fill_opacity=0.6
+                radius=8,
+                color="red",
+                fill_color="red",
+                fill_opacity=0.9
             )
-            markers.append(marker)
-
-        m.add_layer(markers)
+            m.add_layer(marker)
 
         return m
 
