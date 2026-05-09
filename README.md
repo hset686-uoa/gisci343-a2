@@ -41,4 +41,4 @@ shinylive export . site
 Hosted using GitHub Pages.
 
 ## Live App
-[Dashboard Link](YOUR_LINK_HERE)
+[Dashboard Link](https://hset686-uoa.github.io/gisci343-a2/)
