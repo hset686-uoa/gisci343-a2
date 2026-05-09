@@ -171,10 +171,10 @@ def server(input, output, session):
         for _, row in sample.iterrows():
             marker = ipyleaflet.CircleMarker(
                 location=(row["lat"], row["lon"]),
-                radius=8,
+                radius=5,
                 color="red",
                 fill_color="red",
-                fill_opacity=0.9
+                fill_opacity=0.65
             )
             m.add_layer(marker)
 
