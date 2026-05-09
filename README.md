@@ -35,7 +35,7 @@ shiny run --reload app.py
 Export Shinylive site:
 
 ```bash
-shinylive export . site
+uv run shinylive export . docs
 ```
 
 Hosted using GitHub Pages.
