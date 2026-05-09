@@ -1,6 +1,6 @@
 ---
 title: "GISCI 343 Assignment 2: Design Report"
-author: "Hans Setiawan"
+author: "Hans Setiawan (hset686)"
 date: today
 format:
   pdf:
@@ -46,9 +46,15 @@ The dashboard is designed to provide a simple and interactive workflow for explo
 
 The first visualisation is a horizontal bar chart showing the routes with the highest total passenger volumes within the selected filters. This allows users to quickly identify which Auckland public transport routes are the busiest. The chart dynamically changes based on the selected transport mode and year range.
 
+![Figure 1. Top routes by total passengers.](images/bar_chart.png){width=85%}
+
 The second visualisation is a monthly trend chart that displays how patronage changes over time for the selected top routes. Users can compare seasonal variation, long term growth, and differences between routes. Restricting the chart to a smaller number of top routes helps improve readability and reduces clutter.
 
+![Figure 2. Monthly patronage trend for selected routes.](images/trend_chart.png){width=85%}
+
 The dashboard also includes an interactive ipyleaflet map showing the spatial distribution of Auckland bus stop locations. Users can zoom and pan around the map to explore transport infrastructure spatially. This adds geographic context to the statistical charts and helps users identify areas with higher transport service density.
+
+![Figure 3. Interactive map showing Auckland bus stop locations.](images/map.png){width=85%}
 
 The workflow of the application moves from filtering data, to identifying high demand routes, to exploring temporal trends and spatial patterns. This structure allows users to move from raw information toward meaningful transport insights in a clear and interactive way.
 
